@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>User Form</h1>
+            <h1>Category Form</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Form</li>
+              <li class="breadcrumb-item active">Category</li>
             </ol>
           </div>
         </div>
@@ -43,29 +43,19 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form action="{{ route('users.store') }}" method="POST">
+              <form action="{{ route('categories.store') }}" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{ old('first_name') }}">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{ old('last_name') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email') }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="password_confirmation">Confirm Password</label>
-                      <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Re-enter Password">
-                    </div>
+                      <label for="status">Status</label><br>
+                      <input type="radio" id="status_active" name="status" value="1" {{ old('status') == 1 ? 'checked' : '' }}>Active
+                      <br>
+                      <input type="radio" id="status_inactive" name="status" value="0" {{ old('status') == 0 ? 'checked' : '' }}>Inactive
+                  </div>
                 </div>
                 <!-- /.card-body -->
             

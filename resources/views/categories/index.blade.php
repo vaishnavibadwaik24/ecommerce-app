@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Users</h1>
+            <h1>Categories</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
+              <li class="breadcrumb-item active">Categories</li>
             </ol>
           </div>
         </div>
@@ -32,7 +32,7 @@
                     <h3 class="card-title">DataTable with default features</h3>
                 </div>
                 <div class="ml-auto">
-                    <a href="{{ url('users/create') }}" class="btn btn-info">Add Users</a>
+                    <a href="{{ url('categories/create') }}" class="btn btn-info">Add Categories</a>
                 </div>
             </div>
               <!-- /.card-header -->
@@ -41,9 +41,8 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -51,15 +50,20 @@
                         @php
                         $serialNumber = 1;
                         @endphp
-                        @foreach($users as $user)
+                        @foreach($categories as $category)
                             <tr>
                                 <td>{{ $serialNumber++ }}</td>
-                                <td>{{ $user->first_name }}</td>
-                                <td>{{ $user->last_name }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $category->name }}</td>
+                                <td>
+                                  @if($category->status == 1)
+                                  <span class="badge badge-success">Active</span>
+                                  @else
+                                  <span class="badge badge-danger">Inactive</span>
+                                  @endif
+                                </td>
                                 <td class="d-flex">
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary mr-2">Edit</a>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary mr-2">Edit</a>
+                                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -27,6 +29,8 @@ Route::get('/admin/dashboard', function () {
 // Route::get('users/create', [UserController::class, 'store'])->name('users.create');
 
 Route::resource('users', UserController::class);
+Route::resource('categories', CategoryController::class);
+
 
 // GET|HEAD        users ........................... users.index › UserController@index
 // POST            users ........................... users.store › UserController@store

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Hash;
 
 class UserController extends Controller
 {
@@ -23,16 +24,20 @@ class UserController extends Controller
     
     // method used to save data from create-form to database
     public function store(Request $request)
-    {
-        $this->validate($request, [
-            'first_name' => 'required|string|max:50', 
-            'last_name' => 'required|string|max:50',
-            'email' => 'required|email|unique:users,email'
-        ]);        
+{
+    $this->validate($request, [
+        'first_name' => 'required|string|max:50', 
+        'last_name' => 'required|string|max:50',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6|confirmed' 
+    ]);        
 
-        $user = User::create($request->all());
-        return redirect()->route('users.index');
-    }
+    $input = $request->all();
+    $input['password'] = Hash::make($input['password']);
+
+    $user = User::create($input);
+    return redirect()->route('users.index');
+}
 
     // method used to view user-details
     public function show(User $user)
@@ -52,7 +57,8 @@ class UserController extends Controller
         $this->validate($request, [
             'first_name' => 'required|string|max:50', 
             'last_name' => 'required|string|max:50',
-            'email' => 'required|email|unique:users,email'
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6'
         ]);
 
         $user->update($request->all()); 
