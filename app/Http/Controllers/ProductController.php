@@ -61,16 +61,18 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, Product $product){
-        $products->update($request->all()); 
+        $product->update($request->all()); 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
             $name = time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $name);
-            $products->photo = $name;
+            $product->photo = $name; 
         }
+        $product->save(); 
         return redirect()->route('products.index');
     }
+    
 
     public function destroy(Product $product){
         $product->delete();

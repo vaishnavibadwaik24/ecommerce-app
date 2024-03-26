@@ -213,7 +213,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item menu-open">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link active">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link @if(Route::is('admin.dashboard')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>
                 Dashboard
@@ -221,7 +221,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('users.index') }}" class="nav-link">
+            <a href="{{ route('users.index') }}" class="nav-link @if(Route::is('users.index')) active @endif">
               <i class="far fa-circle nav-icon"></i>
               <p>
                 Users
@@ -230,13 +230,13 @@
           </li>
           
               <li class="nav-item">
-                <a href="{{ route('categories.index') }}" class="nav-link">
+                <a href="{{ route('categories.index') }}" class="nav-link @if(Route::is('categories.index')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('products.index') }}" class="nav-link">
+                <a href="{{ route('products.index') }}" class="nav-link @if(Route::is('products.index')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Products</p>
                 </a>

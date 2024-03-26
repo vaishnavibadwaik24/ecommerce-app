@@ -10,7 +10,7 @@ use Hash;
 class UserController extends Controller
 {
     // method is used to show all data
-    public function index(Request $request)
+    public function index(User $user)
     {
         $users = User::all(); // Fetch all users
         return view('users.index', ['users' => $users]);

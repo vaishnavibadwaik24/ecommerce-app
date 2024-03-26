@@ -4,6 +4,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Category; 
+use App\Models\Product;
+
 
 
 
@@ -20,10 +23,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::all(); // Fetch all categories
+    $products = Product::all(); 
+
+    return view('welcome', ['categories' => $categories, 'products' => $products]);
 });
 
-Route::get('/admin/dashboard', function () {
+Route::get('admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
@@ -33,7 +39,6 @@ Route::get('/admin/dashboard', function () {
 Route::resource('users', UserController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
-
 
 
 // GET|HEAD        users ........................... users.index › UserController@index
