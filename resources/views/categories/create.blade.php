@@ -52,10 +52,10 @@
                     </div>
                     <div class="form-group">
                       <label for="status">Status</label><br>
-                      <input type="radio" id="status_active" name="status" value="1" {{ old('status') == 1 ? 'checked' : '' }}>Active
+                      <input type="radio" id="status_active" name="status" value="1" {{ old('status') == 1 ? : '' }}>Active
                       <br>
-                      <input type="radio" id="status_inactive" name="status" value="0" {{ old('status') == 0 ? 'checked' : '' }}>Inactive
-                  </div>
+                      <input type="radio" id="status_inactive" name="status" value="0" {{ old('status') == 0 ? : '' }}>Inactive
+                    </div>
                 </div>
                 <!-- /.card-body -->
             

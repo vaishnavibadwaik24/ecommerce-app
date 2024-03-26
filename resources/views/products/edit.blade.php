@@ -75,7 +75,7 @@
                             <input type="radio" id="status_active" name="status" value="1" {{ $product->status == 1 ? 'checked' : '' }}>Active
                             <br>
                             <input type="radio" id="status_inactive" name="status" value="0" {{ $product->status == 0 ? 'checked' : '' }}>Inactive
-                        </div>                        
+                          </div>                        
                 </div>
                 <!-- /.card-body -->
             

@@ -32,7 +32,7 @@
                     <h3 class="card-title">DataTable with default features</h3>
                 </div>
                 <div class="ml-auto">
-                    <a href="{{ url('users/create') }}" class="btn btn-info">Add Users</a>
+                    <a href="{{ url('users/create') }}" class="btn btn-info">Add User</a>
                 </div>
             </div>
               <!-- /.card-header -->
@@ -40,7 +40,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>

@@ -46,8 +46,8 @@
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">896 Street, Nagpur</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">fruitables@gmail.com</a></small>
                     </div>
                     <div class="top-link pe-2">
                         <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
@@ -178,7 +178,7 @@
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Contact</h4>
                             <p>Address: 1429 Netus Rd, NY 48247</p>
-                            <p>Email: Example@gmail.com</p>
+                            <p>Email: fruitables@gmail.com</p>
                             <p>Phone: +0123 4567 8910</p>
                             <p>Payment Accepted</p>
                             <img src="{{ asset('welcome/img/payment.png') }}" class="img-fluid" alt="">
@@ -194,13 +194,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Fruitables</a>, All right reserved.</span>
                     </div>
                     <div class="col-md-6 my-auto text-center text-md-end text-white">
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                         <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                         <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                        {{-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a> --}}
                     </div>
                 </div>
             </div>

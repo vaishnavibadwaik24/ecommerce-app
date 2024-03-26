@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
     // method is used to view create-form
     public function create()
-    {
+    {   
         return view('categories.create');
     }
 
@@ -64,4 +64,5 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('categories.index');
     }
+    
 }
