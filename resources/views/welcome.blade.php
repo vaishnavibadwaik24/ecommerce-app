@@ -19,11 +19,11 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active rounded">
                                     <img src="{{ asset('welcome/img/hero-img-1.png') }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">Fruits</a>
                                 </div>
                                 <div class="carousel-item rounded">
                                     <img src="{{ asset('welcome/img/hero-img-2.jpg') }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Vesitables</a>
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">Vegetables</a>
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
@@ -141,6 +141,8 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach($products as $product)
+                                    @if ($product->status == 1)
+                                        
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
@@ -149,7 +151,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>{{ $product->title }}</h4>
-                                                <p>{!! $product->description !!}</p>
+                                                <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                     <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
@@ -157,6 +159,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
+
                                     @endforeach
                                 </div>
                             </div>
@@ -168,6 +172,8 @@
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach($products->where('category_id', $category->id) as $product)
+                                    @if ($product->status == 1)
+
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
@@ -176,7 +182,7 @@
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>{{ $product->title }}</h4>
-                                                <p>{!! $product->description !!}</p>
+                                                <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                                     <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
@@ -184,6 +190,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -435,6 +442,8 @@
             <div class="owl-carousel vegetable-carousel justify-content-center">
                 @foreach($products as $product)
                 @if($product->category->name == 'Vegetables')
+                @if ($product->status == 1)
+
                     <div class="border border-primary rounded position-relative vegetable-item">
                         <div class="vegetable-img">
                             <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
@@ -442,7 +451,7 @@
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">{{ $product->category->name }}</div>
                         <div class="p-4 rounded-bottom">
                             <h4>{{ $product->title }}</h4>
-                            <p>{!! $product->description !!}</p>
+                            <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
                                 <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
@@ -450,6 +459,8 @@
                         </div>
                     </div>
                     @endif
+                    @endif
+
                 @endforeach
             </div>
         </div>
