@@ -64,7 +64,6 @@
                           <div class="form-group"> 
                             <label for="photo">Old Photo</label>
                             <img src="{{ asset('images/'.$product->photo) }}" alt="Profile" style="max-width: 60px; max-height: 60px;">
-
                           </div>
                           <div class="form-group">
                             <label for="photo">New Photo</label>

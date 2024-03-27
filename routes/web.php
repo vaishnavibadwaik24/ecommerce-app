@@ -4,6 +4,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category; 
 use App\Models\Product;
@@ -40,11 +41,4 @@ Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 Route::resource('banners', BannerController::class);
 
-
-// GET|HEAD        users ........................... users.index › UserController@index
-// POST            users ........................... users.store › UserController@store
-// GET|HEAD        users/create .................. users.create › UserController@create
-// GET|HEAD        users/{user} ...................... users.show › UserController@show
-// PUT|PATCH       users/{user} .................. users.update › UserController@update
-// DELETE          users/{user} ................ users.destroy › UserController@destroy
-// GET|HEAD        users/{user}/edit ................. users.edit › UserController@edit
+Route::post('cart/store', [CartController::class, 'store'])->name('cart.store');
