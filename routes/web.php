@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category; 
 use App\Models\Product;
-
-
-
+use App\Models\Banner;
 
 
 /*
@@ -39,6 +38,7 @@ Route::get('admin/dashboard', function () {
 Route::resource('users', UserController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
+Route::resource('banners', BannerController::class);
 
 
 // GET|HEAD        users ........................... users.index › UserController@index

@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Categories</h1>
+            <h1>Banners</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Categories</li>
+              <li class="breadcrumb-item active">Banners</li>
             </ol>
           </div>
         </div>
@@ -32,7 +32,7 @@
                     <h3 class="card-title">DataTable with default features</h3>
                 </div>
                 <div class="ml-auto">
-                    <a href="{{ url('categories/create') }}" class="btn btn-info">Add Category</a>
+                    <a href="{{ url('banners/create') }}" class="btn btn-info">Add Banner</a>
                 </div>
             </div>
               <!-- /.card-header -->
@@ -41,7 +41,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Photo</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -50,20 +51,23 @@
                         @php
                         $serialNumber = 1;
                         @endphp
-                        @foreach($categories as $category)
+                        @foreach($banners as $banner)
                             <tr>
                                 <td>{{ $serialNumber++ }}</td>
-                                <td>{{ $category->name }}</td>
+                                <td>{{ $banner->title }}</td>
                                 <td>
-                                  @if($category->status == 1)
+                                    <img src="{{ asset('images/'.$banner->photo) }}" alt="Profile" style="max-width: 60px; max-height: 60px;">
+                                </td>
+                                <td>
+                                  @if($banner->status == 1)
                                   <span class="badge badge-success">Active</span>
                                   @else
                                   <span class="badge badge-danger">Inactive</span>
                                   @endif
                                 </td>
                                 <td class="d-flex">
-                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary mr-2">Edit</a>
-                                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                                    <a href="{{ route('banners.show', $banner->id) }}" class="btn btn-primary mr-2">Show</a>
+                                    <form action="{{ route('banners.destroy', $banner->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
