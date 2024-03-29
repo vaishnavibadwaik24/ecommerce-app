@@ -1,16 +1,18 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\WelcomeController;
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Models\Banner;
 use App\Models\Category; 
 use App\Models\Product;
-use App\Models\Banner;
+use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -46,3 +48,10 @@ Route::get('cart/remove/{id}', [CartController::class, 'remove']);
 Route::get('checkout', [CartController::class, 'checkoutindex']);
 Route::post('/place/order', [CartController::class, 'placeOrder']);
 
+Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('stripe');
+Route::post('stripePost', [StripePaymentController::class, 'stripePost']);
+
+
+
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index'])->name('razorpay-payment');
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');

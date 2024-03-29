@@ -261,7 +261,7 @@
         </div>
         <!-- Featurs End -->
 
-        <!-- Vesitable Shop Start-->
+        <!-- Vegetable Shop Start-->
     <div class="container-fluid vesitable py-5">
         <div class="container py-5">
             <h1 class="mb-0">Fresh Organic Vegetables</h1>
@@ -297,7 +297,7 @@
             </div>
         </div>
     </div>
-    <!-- Vesitable Shop End -->
+    <!-- Vegetable Shop End -->
 
 
         <!-- Banner Section Start-->

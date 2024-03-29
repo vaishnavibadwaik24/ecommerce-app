@@ -39,6 +39,6 @@ class CartController extends Controller
     function placeOrder(Request $request) {
         $input = $request->all();
         $user = Detail::create($input);
-        return redirect()->back();
+        return redirect()->route('razorpay-payment');
     }
 }

@@ -150,7 +150,7 @@
                                     <td class="py-5"></td>
                                     <td class="py-5">
                                         <div class="py-3 border-bottom border-top">
-                                            <p class="mb-0 text-dark">₹{{ Cart::total();
+                                            <p class="mb-0 text-dark">₹{{ Cart::subtotal();
                                             }}</p>
                                         </div>
                                     </td>
