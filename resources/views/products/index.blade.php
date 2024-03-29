@@ -46,6 +46,7 @@
                             <th>Category</th>
                             <th>Photo</th>
                             <th>Status</th>
+                            <th>price</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -72,6 +73,7 @@
                                   <span class="badge badge-danger">Inactive</span>
                                   @endif
                                 </td>
+                                <td>{{ $product->price }}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary mr-2">Edit</a>
                                     <form action="{{ route('products.destroy', $product->id) }}" method="POST">

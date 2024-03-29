@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\WelcomeController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Category; 
 use App\Models\Product;
@@ -22,23 +24,25 @@ use App\Models\Banner;
 |
 */
 
-Route::get('/', function () {
-    $categories = Category::all(); // Fetch all categories
-    $products = Product::all(); 
+Route::get('/', [WelcomeController::class, 'index'])->name('index');
 
-    return view('welcome', ['categories' => $categories, 'products' => $products]);
-});
 
 Route::get('admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-// Route::get('users', [UserController::class, 'index'])->name('users');
-// Route::get('users/create', [UserController::class, 'store'])->name('users.create');
 
 Route::resource('users', UserController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 Route::resource('banners', BannerController::class);
 
+// Cart
 Route::post('cart/store', [CartController::class, 'store'])->name('cart.store');
+Route::get('cart', [CartController::class, 'index']);
+Route::get('cart/remove/{id}', [CartController::class, 'remove']);
+
+// Checkout
+Route::get('checkout', [CartController::class, 'checkoutindex']);
+Route::post('/place/order', [CartController::class, 'placeOrder']);
+

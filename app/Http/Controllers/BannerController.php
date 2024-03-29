@@ -8,13 +8,12 @@ use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $banners = Banner::all(); 
-        return view('banners.index', ['banners' => $banners]);
+        return view('welcome', compact('banners'));
     }
 
-    // method is used to view create-form
     public function create()
     {   
         return view('banners.create');
@@ -22,16 +21,15 @@ class BannerController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'title' => 'required|string|max:50',
-            'photo' =>  'required',
-            'status' => 'required'
-        ]);        
-
-        $banner = Banner::create([
-            'title' => $request->title,
-            'status' => $request->status 
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|boolean'
         ]);
+
+        $banner = new Banner();
+        $banner->title = $request->title;
+        $banner->status = $request->status;
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -45,7 +43,6 @@ class BannerController extends Controller
         return redirect()->route('banners.index');
     }
 
-    // method used to view user-details
     public function show(Banner $banner)
     {
         return view('banners.show', compact('banner'));

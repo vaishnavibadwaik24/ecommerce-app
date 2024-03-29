@@ -17,14 +17,21 @@
                     <div class="col-md-12 col-lg-5">
                         <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active rounded">
-                                    <img src="{{ asset('welcome/img/hero-img-1.png') }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Fruits</a>
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        
+                                        @foreach($banners as $key => $banner)
+
+                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
+                                            <img src="{{ asset('images/'.$banner->photo) }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="{{ $banner->title }}">
+                                            <a href="#" class="btn px-4 py-2 text-white rounded">{{ $banner->title }}</a>
+                                        </div>
+                                        @endforeach
+
+                                
+                                    </div>
                                 </div>
-                                <div class="carousel-item rounded">
-                                    <img src="{{ asset('welcome/img/hero-img-2.jpg') }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Vegetables</a>
-                                </div>
+                                
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -141,10 +148,12 @@
                                                 <h4>{{ $product->title }}</h4>
                                                 <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                    <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
                                                     <form action="{{ route('cart.store') }}" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="title" value="{{ $product->title }}">
+                                                        <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
                                                     <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
                                                     </form>
                                                 </div>
@@ -176,9 +185,15 @@
                                                 <h4>{{ $product->title }}</h4>
                                                 <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                    <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
                                                    
-                                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Adds to cart</button>
+                                                    <form action="{{ route('cart.store') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="title" value="{{ $product->title }}">
+                                                        <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
+                                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                                    </form>
                                             
                                                 </div>
                                             </div>
@@ -264,8 +279,14 @@
                             <h4>{{ $product->title }}</h4>
                             <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
+                                <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                    <input type="hidden" name="title" value="{{ $product->title }}">
+                                    <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
+                                <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>

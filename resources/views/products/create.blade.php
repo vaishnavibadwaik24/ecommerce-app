@@ -69,6 +69,10 @@
                             <label for="photo">Photo</label>
                             <input class="form-control" type="file" id="photo" name="photo" value="{{ old('photo') }}">
                           </div>
+                          <div class="form-group">
+                            <label for="price">Price</label>
+                            <input class="form-control" type="text" id="price" name="price" value="{{ old('price') }}">
+                          </div>
                     <div class="form-group">
                       <label for="status">Status</label><br>
                       <input type="radio" id="status_active" name="status" value="1" {{ old('status') == 1 ? : '' }}>Active

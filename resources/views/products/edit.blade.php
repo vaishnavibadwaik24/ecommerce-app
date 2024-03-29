@@ -70,6 +70,10 @@
                             <input class="form-control" type="file" id="photo" name="photo" value="{{ old('photo') }}">
                           </div>
                           <div class="form-group">
+                            <label for="price">Price</label>
+                            <input class="form-control" type="text" id="price" name="price" value="{{ $product->price }}">
+                          </div>
+                          <div class="form-group">
                             <label for="status">Status</label><br>
                             <input type="radio" id="status_active" name="status" value="1" {{ $product->status == 1 ? 'checked' : '' }}>Active
                             <br>
