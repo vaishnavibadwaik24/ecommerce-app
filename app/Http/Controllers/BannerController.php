@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
     public function index()
     {
-        $banners = Banner::all(); 
-        return view('welcome', compact('banners'));
+        $banners = Banner::all();
+        $categories = Category::all();
+        $products = Product::all(); 
+        return view('welcome', compact('banners', 'categories', 'products'));
     }
 
     public function create()

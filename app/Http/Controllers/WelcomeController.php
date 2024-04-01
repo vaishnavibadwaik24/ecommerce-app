@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-    function index(){
-    $categories = Category::all(); // Fetch all categories
-    $products = Product::all(); 
-    $banners = Banner::all();
-    // dd($banners);
-    return view('welcome', compact('categories','products','banners'));
+    public function index(){
+        $categories = Category::all(); // Fetch all categories
+        $products = Product::all(); 
+        $banners = Banner::all();
+        // dd($banners);
+        return view('welcome', compact('categories','products','banners'));
     }
 }

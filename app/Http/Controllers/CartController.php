@@ -23,6 +23,7 @@ class CartController extends Controller
 
     function index() {
         $data = Cart::content();
+        // dd($data);
         return view('cart', compact('data'));
     }
         
