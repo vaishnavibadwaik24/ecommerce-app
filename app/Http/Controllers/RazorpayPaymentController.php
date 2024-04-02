@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Razorpay\Api\Api;
 use Session;
 use Exception;
-  
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class RazorpayPaymentController extends Controller
 {
     /**
@@ -16,7 +17,9 @@ class RazorpayPaymentController extends Controller
      */
     public function index()
     {        
-        return view('razorpayView');
+        $data =(int)Cart::subtotal();
+        
+        return view('razorpayView',compact('data'));
     }
   
     /**
@@ -27,11 +30,10 @@ class RazorpayPaymentController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-  
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
   
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
-  
+        
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
