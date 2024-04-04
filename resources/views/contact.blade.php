@@ -12,7 +12,15 @@
 </div>
 <!-- Single Page Header End -->
 
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 <!-- Contact Start -->
 <div class="container-fluid contact py-5">
     <div class="container py-5">

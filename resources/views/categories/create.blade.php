@@ -34,7 +34,7 @@
                       @endforeach
                   </ul>
               </div>
-              @endif
+            @endif
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">

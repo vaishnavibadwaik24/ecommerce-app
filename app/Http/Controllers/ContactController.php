@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Mail\WelcomeEmail;
 use Mail;
+
 class ContactController extends Controller
 {
     public function index(Request $request)

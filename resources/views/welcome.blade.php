@@ -141,7 +141,9 @@
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
+                                                <a href="{{ url('shopdetails', $product->id) }}">
                                                 <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="" style="width: 500; height:350;">
+                                                </a>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -178,7 +180,9 @@
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
+                                                <a href="{{ url('shopdetails', $product->id) }}">
                                                 <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="" style="width: 500; height:350;">
+                                                </a>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -249,8 +253,8 @@
                                 <img src="{{ asset('welcome/img/featur-3.jpg') }}" class="img-fluid rounded-top w-100" alt="">
                                 <div class="px-4 rounded-bottom">
                                     <div class="service-content bg-secondary text-center p-4 rounded">
-                                        <h5 class="text-white">Exotic Vegitable</h5>
-                                        <h3 class="mb-0">Discount 30$</h3>
+                                        <h5 class="text-white">Exotic Vegetable</h5>
+                                        <h3 class="mb-0">Discount 30₹</h3>
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +276,9 @@
 
                     <div class="border border-primary rounded position-relative vegetable-item">
                         <div class="vegetable-img">
+                            <a href="{{ url('shopdetails', $product->id) }}">
                             <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
+                            </a>
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">{{ $product->category->name }}</div>
                         <div class="p-4 rounded-bottom">
@@ -318,7 +324,7 @@
                             <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
                                 <h1 style="font-size: 100px;">1</h1>
                                 <div class="d-flex flex-column">
-                                    <span class="h2 mb-0">50$</span>
+                                    <span class="h2 mb-0">50₹</span>
                                     <span class="h4 text-muted mb-0">kg</span>
                                 </div>
                             </div>
@@ -347,7 +353,7 @@
                                     <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded-circle" alt="">
                                 </div>
                                 <div class="col-6">
-                                    <a href="#" class="h5">Organic {{ $product->title }}</a>
+                                    <a href="{{ url('shopdetails', $product->id) }}" class="h5">Organic {{ $product->title }}</a>
                                     <div class="d-flex my-3">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -376,7 +382,7 @@
                         <div class="text-center">
                             <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded" alt="">
                             <div class="py-4">
-                                <a href="#" class="h5">Organic {{ $product->title }}</a>
+                                <a href="{{ url('shopdetails', $product->id) }}" class="h5">Organic {{ $product->title }}</a>
                                 <div class="d-flex my-3 justify-content-center">
                                     <i class="fas fa-star text-primary"></i>
                                     <i class="fas fa-star text-primary"></i>
@@ -450,16 +456,15 @@
                         <div class="position-relative">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                             <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                <p class="mb-0">We have really been enjoying your fruit. The quality has been amazing!
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
-                                    <img src="{{ asset('welcome/img/testimonial-1.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                    <img src="{{ asset('welcome/img/testimonial-3.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Client Name</h4>
-                                    <p class="m-0 pb-3">Profession</p>
+                                    <h4 class="text-dark">Smith Doe</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -475,7 +480,7 @@
                         <div class="position-relative">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                             <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                <p class="mb-0">The fruit is AMAZING! Best quality I have ever seen…it rivals my local Sunday farmers market.
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
@@ -483,8 +488,7 @@
                                     <img src="{{ asset('welcome/img/testimonial-1.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Client Name</h4>
-                                    <p class="m-0 pb-3">Profession</p>
+                                    <h4 class="text-dark">Annie Sharma</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -500,16 +504,15 @@
                         <div class="position-relative">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                             <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                <p class="mb-0">Veggies and fruits are just awesome. Now no need to go out in search of organic vegetables and fruits.
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
-                                    <img src="{{ asset('welcome/img/testimonial-1.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                                    <img src="{{ asset('welcome/img/testimonial-2.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Client Name</h4>
-                                    <p class="m-0 pb-3">Profession</p>
+                                    <h4 class="text-dark">Ivan Menon</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>

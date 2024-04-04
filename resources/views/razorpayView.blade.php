@@ -3,7 +3,7 @@
 
 <div id="app" class="mt-4">
     <main class="py-4">
-        <div class="container mt-4">
+        <div class="container mt-4 pt-4">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     @if($message = Session::get('error'))

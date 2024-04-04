@@ -50,9 +50,9 @@
                         <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">fruitables@gmail.com</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                        <a href="{{ url('privacy') }}" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                        <a href="{{ url('terms') }}" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                        <a href="{{ url('sales') }}" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
                     </div>
                 </div>
             </div>
@@ -64,20 +64,13 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="{{ url('cart') }}" class="dropdown-item">Cart</a>
-                                    <a href="{{ url('checkout') }}" class="dropdown-item">Chackout</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div>
-                            <a href="{{ url('contacts') }}" class="nav-item nav-link">Contact</a>
+                            <a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                            <a href="{{ url('shops') }}" class="nav-link {{ Request::is('shops') ? 'active' : '' }}">Shop</a>
+
+                            <a href="{{ url('testimonial') }}" class="nav-link {{ Request::is('testimonial') ? 'active' : '' }}">Testimonial</a>
+                            <a href="{{ url('contacts') }}" class="nav-link {{ Request::is('contacts') ? 'active' : '' }}">Contact</a>
                         </div>
+                        
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
                             <a href="{{ url('cart') }}" class="position-relative me-4 my-auto">
@@ -148,19 +141,19 @@
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Why People Like us!</h4>
                             <p class="mb-4">typesetting, remaining essentially unchanged. It was 
-                                popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
+                                popularised in the 2001s with the like Aldus PageMaker.</p>
                             <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
                             <h4 class="text-light mb-3">Shop Info</h4>
-                            <a class="btn-link" href="">About Us</a>
-                            <a class="btn-link" href="">Contact Us</a>
-                            <a class="btn-link" href="">Privacy Policy</a>
-                            <a class="btn-link" href="">Terms & Condition</a>
-                            <a class="btn-link" href="">Return Policy</a>
-                            <a class="btn-link" href="">FAQs & Help</a>
+                            <a class="btn-link" href="{{ url('/') }}">About Us</a>
+                            <a class="btn-link" href="{{ url('contacts') }}">Contact Us</a>
+                            <a class="btn-link" href="{{ url('privacy') }}">Privacy Policy</a>
+                            <a class="btn-link" href="{{ url('terms') }}">Terms & Condition</a>
+                            <a class="btn-link" href="{{ url('sales') }}">Return Policy</a>
+                            <a class="btn-link" href="{{ url('help') }}">FAQs & Help</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -179,7 +172,7 @@
                             <h4 class="text-light mb-3">Contact</h4>
                             <p>Address: 1429 Netus Rd, NY 48247</p>
                             <p>Email: fruitables@gmail.com</p>
-                            <p>Phone: +0123 4567 8910</p>
+                            <p>Phone: +91 2345678910</p>
                             <p>Payment Accepted</p>
                             <img src="{{ asset('welcome/img/payment.png') }}" class="img-fluid" alt="">
                         </div>

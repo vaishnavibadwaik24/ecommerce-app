@@ -29,14 +29,16 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'photo' =>  'required',
-            'status' => 'required'
+            'status' => 'required',
+            'price'=>'required',
         ]);
 
         $product = Product::create([
             'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category_id,
-            'status' => $request->status
+            'status' => $request->status,
+            'price' => $request->price,
         ]);
 
         if ($request->hasFile('photo')) {
@@ -77,4 +79,5 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index');
     }
+    
 }

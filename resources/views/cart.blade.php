@@ -29,19 +29,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $data)
+                    @foreach ($cartItems as $item)
                         
                     <tr>
                         <th scope="row">
                             <div class="d-flex align-items-center">
-                                <img src="{{ asset('images/'.$data->photo) }}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                <img src="{{ asset('images/'.$item->photo) }}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
                             </div>
                         </th>
                         <td>
-                            <p class="mb-0 mt-4">{{ $data->name }}</p>
+                            <p class="mb-0 mt-4">{{ $item->name }}</p>
                         </td>
                         <td>
-                            <p class="mb-0 mt-4">{{ number_format((float) $data->price, 2, '.', '') }}₹</p>
+                            <p class="mb-0 mt-4">{{ number_format((float) $item->price, 2, '.', '') }}₹</p>
                         </td>
                         <td>
                             <div class="input-group quantity mt-4" style="width: 100px;">
@@ -50,7 +50,7 @@
                                     <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control form-control-sm text-center border-0" value="{{ $data->qty }}">
+                                <input type="text" class="form-control form-control-sm text-center border-0" value="{{ $item->qty }}">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                         <i class="fa fa-plus"></i>
@@ -59,10 +59,10 @@
                             </div>
                         </td>
                         <td>
-                            <p class="mb-0 mt-4">{{ number_format((float) $data->price * $data->qty, 2, '.', '') }}₹</p>
+                            <p class="mb-0 mt-4">{{ number_format((float) $item->price * $item->qty, 2, '.', '') }}₹</p>
                         </td>
                         <td>
-                            <a href="{{ url('cart/remove', $data->rowId) }}" class="btn btn-md rounded-circle bg-light border mt-4" >
+                            <a href="{{ url('cart/remove', $item->rowId) }}" class="btn btn-md rounded-circle bg-light border mt-4" >
                                 <i class="fa fa-times text-danger"></i>
                             </a>
                         </td>

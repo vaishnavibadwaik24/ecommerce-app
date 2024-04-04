@@ -17,4 +17,33 @@ class WelcomeController extends Controller
         // dd($banners);
         return view('welcome', compact('categories','products','banners'));
     }
+
+    public function privacy_index(Request $request)
+    {
+        $input = $request->all();
+
+        return view('privacy', compact('input'));
+    }
+
+    public function terms_index(Request $request)
+    {
+        $input = $request->all();
+
+        return view('terms', compact('input'));
+    }
+
+    public function sales_index(Request $request)
+    {
+        $input = $request->all();
+
+        return view('sales', compact('input'));
+    }
+
+    public function help_index(Request $request)
+    {
+        $input = $request->all();
+
+        return view('help', compact('input'));
+    }
+
 }
