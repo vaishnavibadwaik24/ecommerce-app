@@ -21,12 +21,12 @@
                                     <div class="carousel-inner">
                                         
                                         @foreach($banners as $key => $banner)
-
-                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
-                                            <img src="{{ asset('images/'.$banner->photo) }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="{{ $banner->title }}">
-                                            <a href="#" class="btn px-4 py-2 text-white rounded">{{ $banner->title }}</a>
-                                        </div>
+                                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }} rounded">
+                                                <img src="{{ asset('images/'.$banner->photo) }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="{{ $banner->title }}">
+                                                <a href="#" class="btn px-4 py-2 text-white rounded">{{ $banner->title }}</a>
+                                            </div>
                                         @endforeach
+
 
                                 
                                     </div>
