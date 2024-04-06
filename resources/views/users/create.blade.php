@@ -59,6 +59,14 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email') }}">
                     </div>
                     <div class="form-group">
+                      <label for="role_id">Role ID</label>&nbsp;
+                      <select name="role_id" id="role_id">
+                        <option value="">Select Role</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
                       <label for="password">Password</label>
                       <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
                     </div>

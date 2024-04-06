@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 
@@ -27,8 +27,6 @@
                                             </div>
                                         @endforeach
 
-
-                                
                                     </div>
                                 </div>
                                 
@@ -350,7 +348,7 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-                                    <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded-circle" alt="">
+                                    <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded-circle" style="width:150px; height:150px;" alt="">
                                 </div>
                                 <div class="col-6">
                                     <a href="{{ url('shopdetails', $product->id) }}" class="h5">Organic {{ $product->title }}</a>

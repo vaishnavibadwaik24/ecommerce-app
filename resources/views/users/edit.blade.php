@@ -50,6 +50,14 @@
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                     </div>
+                    <div class="form-group">
+                      <label for="role_id">Role ID</label>&nbsp;
+                      <select name="role_id" id="role_id">
+                          <option value="{{ $user->role_id }}">{{ $user->role_id }}</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                      </select>
+                  </div>
                 </div>
                 <!-- /.card-body -->
             

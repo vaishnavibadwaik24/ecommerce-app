@@ -44,6 +44,7 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
+                            <th>Role ID</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -57,6 +58,8 @@
                                 <td>{{ $user->first_name }}</td>
                                 <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->role_id }}</td>
+
                                 <td class="d-flex">
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary mr-2">Edit</a>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
