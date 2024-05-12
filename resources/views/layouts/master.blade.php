@@ -170,7 +170,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Contact</h4>
-                            <p>Address: 1429 Netus Rd, NY 48247</p>
+                            <p>Address:  123 Street Nagpur, India</p>
                             <p>Email: fruitables@gmail.com</p>
                             <p>Phone: +91 2345678910</p>
                             <p>Payment Accepted</p>

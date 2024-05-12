@@ -22,10 +22,8 @@
                 <div class="row g-4">
                     <div class="col-xl-3">
                         <div class="input-group w-100 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords"
-                                aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i
-                                    class="fa fa-search"></i></span>
+                            <input type="search" class="form-control p-3" placeholder="Search" aria-describedby="search-icon-1" id="searchInput">
+                            {{-- <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span> --}}
                         </div>
                     </div>
                     <div class="col-6"></div>
@@ -34,10 +32,9 @@
                             <label for="fruits">Default Sorting:</label>
                             <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3"
                                 form="fruitform">
-                                <option value="volvo">Nothing</option>
-                                <option value="saab">Popularity</option>
-                                <option value="opel">Organic</option>
-                                <option value="audi">Fantastic</option>
+                                <option value="nothing">Nothing</option>
+                                <option value="popularity">Popularity</option>
+                                <option value="organic">Organic</option>
                             </select>
                         </div>
                     </div>
@@ -49,8 +46,7 @@
                                 <div class="mb-3">
                                     <h4>Categories</h4>
                                     <ul class="list-unstyled fruite-categorie">
-                                        @foreach ($categories as $category)
-                                            
+                                        @foreach ($categories as $category)   
                                         <li>
                                             <div class="d-flex justify-content-between fruite-name">
                                                 <a href="#"><i class="fas fa-apple-alt me-2"></i>{{ $category->name }}</a>
@@ -58,31 +54,6 @@
                                             </div>
                                         </li>
                                         @endforeach
-
-                                        {{-- <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
-                                                <span>(5)</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
-                                                <span>(2)</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
-                                                <span>(8)</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
-                                                <span>(5)</span>
-                                            </div>
-                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -90,41 +61,12 @@
                                 <div class="mb-3">
                                     <h4 class="mb-2">Price</h4>
                                     <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput"
-                                        min="0" max="500" value="0" oninput="amount.value=rangeInput.value">
-                                    <output id="amount" name="amount" min-velue="0" max-value="500"
+                                        min="0" max="100" value="0" oninput="amount.value=rangeInput.value">
+                                    <output id="amount" name="amount" min-velue="0" max-value="100"
                                         for="rangeInput">0</output>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <h4>Additional</h4>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-1" name="Categories-1"
-                                            value="Beverages">
-                                        <label for="Categories-1"> Organic</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-2" name="Categories-1"
-                                            value="Beverages">
-                                        <label for="Categories-2"> Fresh</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-3" name="Categories-1"
-                                            value="Beverages">
-                                        <label for="Categories-3"> Sales</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-4" name="Categories-1"
-                                            value="Beverages">
-                                        <label for="Categories-4"> Discount</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-5" name="Categories-1"
-                                            value="Beverages">
-                                        <label for="Categories-5"> Expired</label>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="col-lg-12">
                                 <h4 class="mb-3">Featured products</h4>
                                 <div class="d-flex align-items-center justify-content-start">
@@ -141,33 +83,14 @@
                                             <i class="fa fa-star"></i>
                                         </div>
                                         <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">2.99 $</h5>
-                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                            <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                            <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                         </div>
                                     </div>
                                 </div>
                                 {{-- <div class="d-flex align-items-center justify-content-start">
                                     <div class="rounded me-4" style="width: 100px; height: 100px;">
                                         <img src="{{ asset('welcome/img/featur-2.jpg') }}" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Big Banana</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">2.99 $</h5>
-                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="{{ asset('welcome/img/featur-3.jpg') }}" class="img-fluid rounded" alt="">
                                     </div>
                                     <div>
                                         <h6 class="mb-2">Big Banana</h6>
@@ -201,12 +124,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="row g-4 justify-content-center">
 
-                            @foreach ($products as $product)
+                    <div class="col-lg-9" id="itemContainer">
+                        <div class="row g-4 justify-content-center" id="productList">
+                            {{-- @foreach ($products as $product)
                             @if ($product->status == 1)
-
+                            
                             <div class="col-md-6 col-lg-6 col-xl-4">
                                 <div class="rounded position-relative fruite-item">
 
@@ -235,10 +158,9 @@
                                 </div>
 
                             </div>
-
                             @endif
-                            @endforeach
-                            
+                            @endforeach --}}
+                    
                             {{-- <div class="col-12">
                                 <div class="pagination d-flex justify-content-center mt-5">
                                     <a href="#" class="rounded">&laquo;</a>
@@ -259,5 +181,90 @@
     </div>
 </div>
 <!-- Fruits Shop End-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+        function fetchAndRenderProducts() {
+            var searchQuery = $('#searchInput').val();
+            var priceRange = $('#rangeInput').val();
+    
+            $.ajax({
+                url: '/api/products', 
+                method: 'GET',
+                dataType: 'json',
+            data: {
+                    search: searchQuery,
+                    price_range: priceRange
+                },
+                success: function(response) {
+                    renderProducts(response.products);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        function renderProducts(products) {
+        var productList = $('#productList');
+        productList.empty();
+
+        if (products.length > 0) {
+                products.forEach(function(product) {
+                    var productHtml = `
+                <div class="col-md-6 col-lg-6 col-xl-4">
+                    <div class="rounded position-relative fruite-item">
+                        <div class="fruite-img">
+                            <a href="/shopdetails/${product.id}">
+                                <img src="/images/${product.photo}" class="img-fluid w-100 rounded-top" alt="">
+                            </a>
+                        </div>
+                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">${product.category.name}</div>
+                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                            <h4>${product.title}</h4>
+                            <p>${product.description.substring(0, 120)}${product.description.length > 120 ? '...' : ''}</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">${parseFloat(product.price).toFixed(2)}₹</p>
+                                <form action="{{ route('cart.store') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="id" value="${product.id}">
+                                    <input type="hidden" name="title" value="${product.title}">
+                                    <input type="hidden" name="price" value="${parseFloat(product.price).toFixed(2)}₹">
+                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+                    productList.append(productHtml);
+                });
+            } else {
+                productList.html('<p>No products found.</p>');
+            }
+        }
+
+        function updatePriceRange() {
+            var rangeValue = $('#rangeInput').val();
+            $('#amount').text(rangeValue);
+            fetchAndRenderProducts();
+        }
+
+        $('#searchInput').on('input', function(event) {
+            event.preventDefault();
+            fetchAndRenderProducts();
+        });
+
+        fetchAndRenderProducts();
+    });
+</script>
+
+
+
+
 
 @endsection

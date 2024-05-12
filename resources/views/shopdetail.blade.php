@@ -257,8 +257,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>
@@ -276,8 +276,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>
@@ -295,8 +295,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>
@@ -314,8 +314,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>
@@ -333,8 +333,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>
@@ -352,8 +352,8 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 $</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
+                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
                                 </div>
                             </div>
                         </div>

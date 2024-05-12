@@ -22,6 +22,7 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'name' => 'required|string|max:50',
             'status' => 'required'

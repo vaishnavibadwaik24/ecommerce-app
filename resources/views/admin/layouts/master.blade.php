@@ -260,8 +260,6 @@
     <!-- /.sidebar -->
   </aside>
 
-
-
 @yield('content')
 
 <footer class="main-footer">

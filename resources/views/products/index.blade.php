@@ -34,7 +34,7 @@
                 <div class="ml-auto">
                     <a href="{{ url('products/create') }}" class="btn btn-info">Add Product</a>
                 </div>
-            </div>
+              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">

@@ -59,12 +59,8 @@ Route::get('cart/remove/{id}', [CartController::class, 'remove']);
 Route::get('checkout', [CartController::class, 'checkoutindex']);
 Route::post('/place/order', [CartController::class, 'placeOrder']);
 
-Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('stripe');
-Route::post('stripePost', [StripePaymentController::class, 'stripePost']);
-
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index'])->name('razorpay-payment');
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
-
 
 Route::get('/testimonial', [TestimonialController::class, 'testimonial_index'])->name('testimonial');
 Route::get('/product/{id}', 'ProductController@show')->name('product.show');

@@ -45,6 +45,7 @@
               <!-- form start -->
               <form action="{{ route('categories.store') }}" method="POST">
                 @csrf
+                @method('POST')
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name</label>
