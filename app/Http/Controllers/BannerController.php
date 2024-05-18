@@ -15,7 +15,7 @@ class BannerController extends Controller
         $banners = Banner::all();
         $categories = Category::all();
         $products = Product::all(); 
-        return view('welcome', compact('banners', 'categories', 'products'));
+        return view('banners.index', compact('banners', 'categories', 'products'));
     }
 
     public function create()

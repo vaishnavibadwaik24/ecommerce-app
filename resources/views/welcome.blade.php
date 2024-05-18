@@ -143,7 +143,7 @@
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
                                                 <a href="{{ url('shopdetails', $product->id) }}">
-                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="" style="width: 500; height:350;">
+                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top w-500 h-350" alt="" style="width: 500; height:350;">
                                                 </a>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
@@ -182,7 +182,7 @@
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
                                                 <a href="{{ url('shopdetails', $product->id) }}">
-                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="" style="width: 500; height:350;">
+                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
                                                 </a>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>

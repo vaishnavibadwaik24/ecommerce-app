@@ -17,7 +17,7 @@ class CartController extends Controller
 
         // Adding an item to the cart
         $data = Cart::add($request->id, $request->title, 1, $price);
-
+        
         return redirect()->back();
         
     }
@@ -30,8 +30,6 @@ class CartController extends Controller
         }
         return view('cart', compact('cartItems'));
     }
-    
-    
         
     function remove($id) {
         Cart::remove($id);
