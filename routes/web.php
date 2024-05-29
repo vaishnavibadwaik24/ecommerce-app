@@ -9,10 +9,11 @@ use App\Http\Controllers\RazorpayPaymentController;
 
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopDetailController;
+use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WelcomeController;
 
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,6 @@ Route::get('terms', [WelcomeController::class, 'terms_index']);
 Route::get('sales', [WelcomeController::class, 'sales_index']);
 Route::get('help', [WelcomeController::class, 'help_index']);
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -49,6 +49,9 @@ Route::resource('contacts', ContactController::class);
 Route::resource('shops', ShopController::class);
 Route::resource('shopdetails', ShopDetailController::class);
 
+Route::get('siteinfo', [SiteInfoController::class, 'index'])->name('siteinfo.index');
+Route::get('siteinfo/create', [SiteInfoController::class, 'create'])->name('siteinfo.create');
+Route::post('siteinfo', [SiteInfoController::class, 'store'])->name('siteinfo.store');
 
 // Cart
 Route::post('cart/store', [CartController::class, 'store'])->name('cart.store');

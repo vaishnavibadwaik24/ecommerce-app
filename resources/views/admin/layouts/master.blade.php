@@ -241,12 +241,18 @@
                   <p>Products</p>
                 </a>
               </li>
-              <li class="nav-item pb-5 mb-5">
+              <li class="nav-item">
                 <a href="{{ route('banners.index') }}" class="nav-link @if(Route::is('banners.index')) active @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Banners</p>
                 </a>
               </li>
+              <li class="nav-item pb-4 mb-4">
+                <a href="{{ route('siteinfo.index') }}" class="nav-link @if(Route::is('siteinfo.index')) active @endif">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>SiteInfo</p>
+                </a>
+            </li>
               <li class="nav-item text-center">
                 <form action="{{ route('logout') }}" method="POST">
                   @csrf

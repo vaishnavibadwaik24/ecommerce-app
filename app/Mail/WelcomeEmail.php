@@ -24,6 +24,13 @@ class WelcomeEmail extends Mailable
     /**
      * Get the message envelope.
      */
+
+     public function build()
+     {
+         return $this->view('emails.welcome')
+                     ->with(['name' => $this->mailData['name']])
+                     ->from($this->mailData['email']);
+     }
     public function envelope(): Envelope
     {
         return new Envelope(

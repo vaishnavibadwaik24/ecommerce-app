@@ -6,6 +6,8 @@ use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\WelcomeEmail;
+use Mail;
 
 class ContactController extends Controller
 {
@@ -14,7 +16,7 @@ class ContactController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|email|unique:contacts,email', 
+            'email' => 'required|email', 
             'message' => 'required|string',
         ]);
 
@@ -27,6 +29,12 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->message = $request->message;
         $contact->save();
+
+        Mail::to('admin@admin.com')->send(new WelcomeEmail([
+            'name' => $request->name,
+            'email'=>$request->email
+        ]));
+
 
         return response()->json(['message' => 'Your Contact Details has been sent Successfully!', 'status' => 201]);
     }
