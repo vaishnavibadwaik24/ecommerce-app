@@ -23,4 +23,9 @@ class ShopController extends Controller
         return response()->json(['products' => $data]);
            
     }
+    function show($id) {
+        $data = Product::find($id);
+
+        return response()->json($data); 
+    }
 }

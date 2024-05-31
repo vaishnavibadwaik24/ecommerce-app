@@ -38,25 +38,25 @@
                         <form action="{{ route('siteinfo.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="about_us">About Us</label>
-                                    <textarea type="text" class="form-control" id="about_us" name="about_us" placeholder="Enter About Us" value="{{ old('about_us') }}"></textarea>
+                                <label for="editor">About Us</label>
+                                <div id="editorWrapper" class="form-group">
+                                    <textarea class="form-control" id="editor" name="about_us">{{ old('about_us') }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="terms_condn">Terms & Conditions</label>
-                                    <textarea type="text" class="form-control" id="terms_condn" name="terms_condn" placeholder="Enter Terms & Conditions" value="{{ old('terms_condn') }}"></textarea>
+                                    <label for="editor">Terms & Conditions</label>
+                                    <div id="editorWrapper" class="form-group">
+                                    <textarea class="form-control" id="editor1" name="terms_condn" >{{ old('terms_condn') }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="privacy_policy">Privacy Policy</label>
-                                    <textarea type="text" class="form-control" id="privacy_policy" name="privacy_policy" placeholder="Enter Privacy Policy" value="{{ old('privacy_policy') }}"></textarea>
+                                    <label for="editor">Privacy Policy</label>
+                                    <div id="editorWrapper" class="form-group">
+                                    <textarea class="form-control" id="editor2" name="privacy_policy" >{{ old('privacy_policy') }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="return_policy">Return policy</label>
-                                    <textarea type="text" class="form-control" id="return_policy" name="return_policy" placeholder="Enter Return Policy" value="{{ old('return_policy') }}"></textarea>
+                                    <label for="editor">Return policy</label>
+                                    <div id="editorWrapper" class="form-group">
+                                    <textarea class="form-control" id="editor3" name="return_policy" >{{ old('return_policy') }}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="jobs">Jobs</label>
-                                    <textarea type="text" class="form-control" id="jobs" name="jobs" placeholder="Enter Jobs" value="{{ old('jobs') }}"></textarea>
+                                    <label for="editor">Jobs</label>
+                                    <div id="editorWrapper" class="form-group">
+                                    <textarea class="form-control" id="editor4" name="jobs" >{{ old('jobs') }}</textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -68,6 +68,33 @@
             </div>
         </div>
     </section>
-</div>
 
+</div>
+<script>
+    ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+        console.error( error );
+      } );
+      ClassicEditor
+      .create( document.querySelector( '#editor1' ) )
+      .catch( error => {
+        console.error( error );
+      } );
+      ClassicEditor
+      .create( document.querySelector( '#editor2' ) )
+      .catch( error => {
+        console.error( error );
+      } );
+      ClassicEditor
+      .create( document.querySelector( '#editor3' ) )
+      .catch( error => {
+        console.error( error );
+      } );
+      ClassicEditor
+      .create( document.querySelector( '#editor4' ) )
+      .catch( error => {
+        console.error( error );
+      } );
+  </script>
 @endsection
