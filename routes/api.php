@@ -11,12 +11,6 @@ use App\Http\Controllers\api\VisitorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,14 +34,25 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('category/destroy/{id}', [CategoryController::class, 'destroy']);
 });
 
- Route::post('login', [UserController::class, 'login']); 
- Route::post('register', [UserController::class, 'register']); 
- 
- Route::get('products', [ShopController::class, 'products']);
- Route::get('productDetail/{id}', [ShopController::class, 'show']);
- Route::post('contacts', [ContactController::class, 'contacts']);
- Route::post('cart', [CartController::class, 'index']);
- Route::get('cart/count', [CartController::class, 'index']);
- Route::get('visitor', [VisitorController::class, 'index']);
- Route::get('siteinfo', [SiteInfoController::class, 'siteinfo']);
+require __DIR__ . '/passport.php';
+
+Route::post('login', [UserController::class, 'login']);
+Route::post('register', [UserController::class, 'register']);
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+});
+// Route::post('login', [UserController::class, 'login']); 
+// Route::post('register', [UserController::class, 'register']); 
+
+Route::get('products', [ShopController::class, 'products']);
+Route::get('productDetail/{id}', [ShopController::class, 'show']);
+Route::post('contacts', [ContactController::class, 'contacts']);
+Route::post('cart', [CartController::class, 'index']);
+Route::get('cart/count', [CartController::class, 'index']);
+
+Route::get('visitor', [VisitorController::class, 'index']);
+Route::get('siteinfo', [SiteInfoController::class, 'siteinfo']);
 Route::get('search/{search}', [ProductController::class, 'search']);
