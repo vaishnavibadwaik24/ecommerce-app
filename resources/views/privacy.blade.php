@@ -6,13 +6,13 @@
     <div class="card mt-5">
         <div class="card-body">
             <header>
-                <h1 class="card-title text-center">Fruitables Privacy Policy</h1>
+                <h1 class="card-title text-center">FastFruits Privacy Policy</h1>
             </header>
             <section class="pt-4">
                 <h2>Introduction</h2>
                 <p>
-                    Welcome to Fruitables. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
-                    <a href="https://www.fruitables.com">www.fruitables.com</a>, including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the "Site"). 
+                    Welcome to FastFruits. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website 
+                    <a href="https://www.fastfruits.com">www.fastfruits.com</a>, including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the "Site"). 
                     Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
                 </p>
             </section>

@@ -11,10 +11,10 @@
                         <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
                         <h1 class="mb-5 display-3 text-primary">Organic Veggies & Fruits Foods</h1>
 
-                        <div class="position-relative mx-auto">
+                        {{-- <div class="position-relative mx-auto">
                             <input id="searchInput" class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text" placeholder="Search">
                             <button id="searchButton" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
-                        </div>
+                        </div> --}}
                                           
                     </div>
                     <div class="col-md-12 col-lg-5">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="featurs-content text-center">
                                 <h5>Free Shipping</h5>
-                                <p class="mb-0">Free on order over $300</p>
+                                <p class="mb-0">Free on order over ₹300</p>
                             </div>
                         </div>
                     </div>
@@ -115,15 +115,15 @@
                         <div class="col-lg-8 text-end">
                             <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                 <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" id="all-products-tab">
                                         <span class="text-dark" style="width: 130px;">All Products</span>
                                     </a>
                                 </li>
-
+        
                                 @foreach ($categories as $category)
                                 <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2{{$category->id}}">
-                                        <span class="text-dark" style="width: 130px;">{{$category->name}}</span>
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill category-tab" data-category-id="{{ $category->id }}">
+                                        <span class="text-dark" style="width: 130px;">{{ $category->name }}</span>
                                     </a>
                                 </li>
                                 @endforeach
@@ -131,90 +131,73 @@
                         </div>
                     </div>
                 </div>
+        
                 <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                        <div class="row g-4">
-                            <div class="col-lg-12">
-                                <div class="row g-4">
-                                    @foreach($products as $product)
-                                    @if ($product->status == 1)
-                                        
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <a href="{{ url('shopdetails', $product->id) }}">
-                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top w-500 h-350" alt="" style="width: 500; height:350;">
-                                                </a>
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>{{ $product->title }}</h4>
-                                                <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
-                                                    <form action="{{ route('cart.store') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="title" value="{{ $product->title }}">
-                                                        <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
-                                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="row g-4" id="products-container">
+                        @foreach($products as $product)
+                        @if ($product->status == 1)
+                        <div class="col-md-6 col-lg-4 col-xl-3 product-item" data-category-id="{{ $product->category_id }}">
+                            <div class="rounded position-relative fruite-item">
+                                <div class="fruite-img">
+                                    <a href="{{ url('shopdetails', $product->id) }}">
+                                        <img src="{{ asset('images/'.$product->photo) }}" class="w-100 rounded-top" alt="Image" style="width: 300px; height: 170px;">
+                                    </a>
+                                </div>
+                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ $product->category->name }}</div>
+                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                    <h4>{{ $product->title }}</h4>
+                                    <p>{!! \Illuminate\Support\Str::limit($product->description, 90, '...') !!}</p>
+                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                        <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
+                                        <form action="{{ route('cart.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <input type="hidden" name="title" value="{{ $product->title }}">
+                                            <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
+                                            <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                        </form>
                                     </div>
-                                    @endif
-
-                                    @endforeach
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                    @foreach($categories as $category)
-                    <div id="tab-2{{$category->id}}" class="tab-pane fade">
-                        <div class="row g-4">
-                            <div class="col-lg-12">
-                                <div class="row g-4">
-                                    @foreach($products->where('category_id', $category->id) as $product)
-                                    @if ($product->status == 1)
-
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <a href="{{ url('shopdetails', $product->id) }}">
-                                                <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$product->category->name}}</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>{{ $product->title }}</h4>
-                                                <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
-                                                   
-                                                    <form action="{{ route('cart.store') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                                        <input type="hidden" name="title" value="{{ $product->title }}">
-                                                        <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
-                                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
-                                                    </form>
-                                            
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @endforeach
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
-                    @endforeach
-
                 </div>
             </div>
         </div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const allProductsTab = document.getElementById('all-products-tab');
+                const categoryTabs = document.querySelectorAll('.category-tab');
+                const productItems = document.querySelectorAll('.product-item');
+        
+                allProductsTab.addEventListener('click', function() {
+                    allProductsTab.classList.add('active');
+                    categoryTabs.forEach(tab => tab.classList.remove('active'));
+                    productItems.forEach(item => item.style.display = 'block');
+                });
+        
+                categoryTabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const categoryId = this.getAttribute('data-category-id');
+                        categoryTabs.forEach(tab => tab.classList.remove('active'));
+                        this.classList.add('active');
+                        allProductsTab.classList.remove('active');
+        
+                        productItems.forEach(item => {
+                            if (item.getAttribute('data-category-id') === categoryId) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+        
         <!-- Fruits Shop End-->
 
 
@@ -225,7 +208,7 @@
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
                             <div class="service-item bg-secondary rounded border border-secondary">
-                                <img src="{{ asset('welcome/img/featur-1.jpg') }}" class="img-fluid rounded-top w-100" alt="">
+                                <img src="{{ asset('welcome/img/featur-1.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
                                 <div class="px-4 rounded-bottom">
                                     <div class="service-content bg-primary text-center p-4 rounded">
                                         <h5 class="text-white">Fresh Apples</h5>
@@ -238,7 +221,7 @@
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
                             <div class="service-item bg-dark rounded border border-dark">
-                                <img src="{{ asset('welcome/img/featur-2.jpg') }}" class="img-fluid rounded-top w-100" alt="">
+                                <img src="{{ asset('welcome/img/featur-2.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
                                 <div class="px-4 rounded-bottom">
                                     <div class="service-content bg-light text-center p-4 rounded">
                                         <h5 class="text-primary">Tasty Fruits</h5>
@@ -251,7 +234,7 @@
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
                             <div class="service-item bg-primary rounded border border-primary">
-                                <img src="{{ asset('welcome/img/featur-3.jpg') }}" class="img-fluid rounded-top w-100" alt="">
+                                <img src="{{ asset('welcome/img/featur-3.jpg') }}" class="img-fluid rounded-top w-100" alt="Image">
                                 <div class="px-4 rounded-bottom">
                                     <div class="service-content bg-secondary text-center p-4 rounded">
                                         <h5 class="text-white">Exotic Vegetable</h5>
@@ -278,13 +261,13 @@
                     <div class="border border-primary rounded position-relative vegetable-item">
                         <div class="vegetable-img">
                             <a href="{{ url('shopdetails', $product->id) }}">
-                            <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{ asset('images/'.$product->photo) }}" class="w-100 rounded-top" alt="Image" style="width: 300px; height: 170px;">
                             </a>
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">{{ $product->category->name }}</div>
                         <div class="p-4 rounded-bottom">
                             <h4>{{ $product->title }}</h4>
-                            <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
+                            <p>{!! \Illuminate\Support\Str::limit($product->description, 90, '...') !!}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
                                 <form action="{{ route('cart.store') }}" method="POST">
@@ -315,20 +298,20 @@
                         <div class="py-4">
                             <h1 class="display-3 text-white">Fresh Exotic Fruits</h1>
                             <p class="fw-normal display-3 text-dark mb-4">in Our Store</p>
-                            <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
-                            <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
+                            <p class="mb-4 text-dark">Tropical delights, rare fruits, unique flavors, exotic produce, fresh harvests, juicy treats, vibrant colors, gourmet selection, premium quality, imported fruits, natural sweetness, healthy choices, seasonal variety, delicious picks, handpicked, ripe flavors, farm-fresh, exclusive selection, nature's bounty, nutritious options.</p>
+                            {{-- <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative">
-                            <img src="{{ asset('welcome/img/baner-1.png') }}" class="img-fluid w-100 rounded" alt="">
-                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
+                            <img src="{{ asset('welcome/img/baner-1.png') }}" class="img-fluid w-100 rounded" alt="Image">
+                            {{-- <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
                                 <h1 style="font-size: 100px;">1</h1>
                                 <div class="d-flex flex-column">
                                     <span class="h2 mb-0">50₹</span>
                                     <span class="h4 text-muted mb-0">kg</span>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -342,19 +325,19 @@
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5" style="max-width: 700px;">
                     <h1 class="display-4">Bestseller Products</h1>
-                    <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+                    {{-- <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p> --}}
                 </div>
                 <div class="row g-4">
-                    @foreach($products as $product)
-                    @if ($product->status == 1)
+                    @foreach($bestsellers as $bestseller)
+                    @if ($bestseller->status == 1)
                     <div class="col-lg-6 col-xl-4">
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-                                    <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded-circle" style="width:150px; height:150px;" alt="">
+                                    <img src="{{ asset('images/'.$bestseller->photo) }}" class="img-fluid rounded-circle" style="width:150px; height:150px;" alt="Image">
                                 </div>
                                 <div class="col-6">
-                                    <a href="{{ url('shopdetails', $product->id) }}" class="h5">Organic {{ $product->title }}</a>
+                                    <a href="{{ url('shopdetails', $bestseller->id) }}" class="h5">Organic {{ $bestseller->title }}</a>
                                     <div class="d-flex my-3">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -362,12 +345,12 @@
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star"></i>
                                     </div>
-                                    <h4 class="mb-3">{{ number_format((float) $product->price, 2, '.', '') }}₹</h4>
+                                    <h4 class="mb-3">{{ number_format((float) $bestseller->price, 2, '.', '') }}₹</h4>
                                     <form action="{{ route('cart.store') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                        <input type="hidden" name="title" value="{{ $product->title }}">
-                                        <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
+                                        <input type="hidden" name="id" value="{{ $bestseller->id }}">
+                                        <input type="hidden" name="title" value="{{ $bestseller->title }}">
+                                        <input type="hidden" name="price" value="{{ number_format((float) $bestseller->price, 2, '.', '') }}₹">
                                     <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
                                     </form>
                                 </div>
@@ -377,11 +360,11 @@
                     @endif
                     @endforeach
                     
-                    @foreach($products as $product)
+                    {{-- @foreach($products as $product)
                     @if ($product->status == 1)
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="text-center">
-                            <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded" alt="">
+                            <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid rounded" alt="Image">
                             <div class="py-4">
                                 <a href="{{ url('shopdetails', $product->id) }}" class="h5">Organic {{ $product->title }}</a>
                                 <div class="d-flex my-3 justify-content-center">
@@ -397,7 +380,7 @@
                         </div>
                     </div>
                     @endif
-                    @endforeach
+                    @endforeach --}}
                    
                 </div>
             </div>
@@ -465,7 +448,7 @@
                                     <img src="{{ asset('welcome/img/testimonial-3.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Smith Doe</h4>
+                                    <h4 class="text-dark">Samarth Zaa</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -489,7 +472,7 @@
                                     <img src="{{ asset('welcome/img/testimonial-1.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Annie Sharma</h4>
+                                    <h4 class="text-dark">Anaya Sharma</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>
@@ -513,7 +496,7 @@
                                     <img src="{{ asset('welcome/img/testimonial-2.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                                 </div>
                                 <div class="ms-4 d-block">
-                                    <h4 class="text-dark">Ivan Menon</h4>
+                                    <h4 class="text-dark">Pranjal Desai</h4>
                                     <div class="d-flex pe-5">
                                         <i class="fas fa-star text-primary"></i>
                                         <i class="fas fa-star text-primary"></i>

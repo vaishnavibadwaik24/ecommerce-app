@@ -10,7 +10,7 @@
             </header>
             <section class="pt-2">
                 <h2>Sales Policy</h2>
-                <p>Thank you for shopping at Fruitables. Here's our sales policy:</p>
+                <p>Thank you for shopping at FastFruits. Here's our sales policy:</p>
                 <ul>
                     <li>All sales are final.</li>
                     <li>We do not offer refunds or exchanges for change of mind.</li>

@@ -59,8 +59,8 @@
                 <h2>Help</h2>
                 <p>If you have any questions or need assistance, please don't hesitate to contact our customer support team:</p>
                 <ul>
-                    <li>Email: fruitables@gmail.com</li>
-                    <li>Phone: 123-456-7890</li>
+                    <li>Email: fastfruits@gmail.com</li>
+                    <li>Phone: 838-456-9043</li>
                     <li>Live Chat: Click the chat icon in the bottom right corner of the website.</li>
                 </ul>
             </section>

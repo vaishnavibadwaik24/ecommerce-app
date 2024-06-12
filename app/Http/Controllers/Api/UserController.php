@@ -13,6 +13,15 @@ class UserController extends Controller
     public $successStatus = 200;
 
     public function login(){ 
+        $email = request('email');
+        $password = request('password');
+    
+        $user = \App\Models\User::where('email', $email)->first();
+    
+        if(!$user) {
+            return response()->json(['error' => 'Email not registered'], 404);
+        }
+
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
             $success['token'] =  $user->createToken('MyLaravelApp')->accessToken; 

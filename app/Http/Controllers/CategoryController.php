@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Category::all(); // Fetch all users
+        $categories = Category::all(); 
         return view('categories.index', ['categories' => $categories]);
     }
 

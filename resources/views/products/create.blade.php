@@ -96,14 +96,19 @@
       </div><!-- /.container-fluid -->
     </section>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
     <script>
-        ClassicEditor
-          .create( document.querySelector( '#editor' ) )
-          .catch( error => {
-            console.error( error );
-          } );
-      </script>
+        document.addEventListener("DOMContentLoaded", function() {
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
     <!-- /.content -->
   </div>
+  <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+
 
 @endsection

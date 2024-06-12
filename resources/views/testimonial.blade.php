@@ -33,7 +33,7 @@
                             <img src="{{ asset('welcome/img/testimonial-3.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                         </div>
                         <div class="ms-4 d-block">
-                            <h4 class="text-dark">Smith Doe</h4>
+                            <h4 class="text-dark">Samarth Zaa</h4>
                             <div class="d-flex pe-5">
                                 <i class="fas fa-star text-primary"></i>
                                 <i class="fas fa-star text-primary"></i>
@@ -57,7 +57,7 @@
                             <img src="{{ asset('welcome/img/testimonial-1.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                         </div>
                         <div class="ms-4 d-block">
-                            <h4 class="text-dark">Annie Sharma</h4>
+                            <h4 class="text-dark">Anaya Sharma</h4>
                             <div class="d-flex pe-5">
                                 <i class="fas fa-star text-primary"></i>
                                 <i class="fas fa-star text-primary"></i>
@@ -81,7 +81,7 @@
                             <img src="{{ asset('welcome/img/testimonial-2.jpg') }}" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
                         </div>
                         <div class="ms-4 d-block">
-                            <h4 class="text-dark">Ivan Menon</h4>
+                            <h4 class="text-dark">Pranjal Desai</h4>
                             <div class="d-flex pe-5">
                                 <i class="fas fa-star text-primary"></i>
                                 <i class="fas fa-star text-primary"></i>

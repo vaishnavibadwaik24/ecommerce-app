@@ -14,8 +14,9 @@ class WelcomeController extends Controller
         $categories = Category::all(); // Fetch all categories
         $products = Product::all(); 
         $banners = Banner::all();
-        // dd($banners);
-        return view('welcome', compact('categories','products','banners'));
+        $bestsellers = $products->sortDesc()->take(9);
+        // dd($bestsellers);
+        return view('welcome', compact('categories', 'products', 'banners', 'bestsellers'));
     }
 
     public function privacy_index(Request $request)
