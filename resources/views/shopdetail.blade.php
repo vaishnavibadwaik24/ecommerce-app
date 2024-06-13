@@ -46,7 +46,7 @@
                             <i class="fa fa-star text-secondary"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <p class="mb-4">{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
+                        <p class="mb-4">{!! $product->description !!}</p>
                         {{-- <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p> --}}
                         <div class="input-group quantity mb-5" style="width: 100px;">
                             <div class="input-group-btn">
@@ -82,10 +82,8 @@
                         </nav>
                         <div class="tab-content mb-5">
                             <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                                <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc. 
-                                    Susp endisse ultricies nisi vel quam suscipit </p>
-                                <p>Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish filefish Antarctic 
-                                    icefish goldeye aholehole trumpetfish pilot fish airbreathing catfish, electric ray sweeper.</p>
+                                <p>At FastFruits, we are passionate about offering a wide variety of high-quality fruits that are not only delicious but also packed with essential nutrients to keep you healthy and energized. </p>
+                                <p>Explore our extensive selection of fruits, ranging from juicy apples and succulent oranges to exotic tropical delights like mangoes and pineapples. Whether you're looking for a quick snack, ingredients for your favorite recipes, or a gift basket for a special occasion, FastFruits has you covered.</p>
                                 <div class="px-2">
                                     <div class="row g-4">
                                         <div class="col-6">
@@ -134,12 +132,14 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                                <div class="d-flex">
-                                    <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                @foreach ($reviews as $review)
+
+                                    <div class="d-flex">
+                                    
                                     <div class="">
-                                        <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                        {{-- <p class="mb-2" style="font-size: 14px;">April 12, 2024</p> --}}
                                         <div class="d-flex justify-content-between">
-                                            <h5>Jason Smith</h5>
+                                            <h5>{{ $review->name }}</h5>
                                             <div class="d-flex mb-3">
                                                 <i class="fa fa-star text-secondary"></i>
                                                 <i class="fa fa-star text-secondary"></i>
@@ -148,11 +148,12 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                         </div>
-                                        <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic 
-                                            words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                        <p> {{ $review->review }} </p>
                                     </div>
                                 </div>
-                                <div class="d-flex">
+                                @endforeach
+
+                                {{-- <div class="d-flex">
                                     <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
                                     <div class="">
                                         <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
@@ -169,7 +170,7 @@
                                         <p class="text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic 
                                             words etc. Susp endisse ultricies nisi vel quam suscipit </p>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="tab-pane" id="nav-vision" role="tabpanel">
                                 <p class="text-dark">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
@@ -199,32 +200,35 @@
                                     <textarea name="review" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="d-flex justify-content-between py-3 mb-5">
-                                    <div class="d-flex align-items-center">
-                                        <p class="mb-0 me-3">Please rate:</p>
-                                        <div class="d-flex align-items-center" style="font-size: 12px;">
-                                            <i class="fa fa-star text-muted"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                            <div class="container">
+                                <div class="col-lg-12">
+                                    <div class="d-flex justify-content-between py-3 mb-5">
+                                        <div class="d-flex align-items-center">
+                                            <p class="mb-0 me-3">Please rate:</p>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-star unchecked" data-value="1"></i>
+                                                <i class="fa fa-star unchecked" data-value="2"></i>
+                                                <i class="fa fa-star unchecked" data-value="3"></i>
+                                                <i class="fa fa-star unchecked" data-value="4"></i>
+                                                <i class="fa fa-star unchecked" data-value="5"></i>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="btn border border-secondary text-primary rounded-pill px-4 py-3">Post Comment</button>
                                     </div>
-                                    <button type="submit" class="btn border border-secondary text-primary rounded-pill px-4 py-3"> Post Comment</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
             <div class="col-lg-4 col-xl-3">
                 <div class="row g-4 fruite">
                     <div class="col-lg-12">
-                        <div class="input-group w-100 mx-auto d-flex mb-4">
+                        {{-- <div class="input-group w-100 mx-auto d-flex mb-4">
                             <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
                             <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                        </div>
+                        </div> --}}
                         <div class="mb-4">
                             <h4>Categories</h4>
                             <ul class="list-unstyled fruite-categorie">
@@ -233,7 +237,7 @@
                                 <li>
                                     <div class="d-flex justify-content-between fruite-name">
                                         <a href="#"><i class="fas fa-apple-alt me-2"></i>{{ $category->name }}</a>
-                                        <span>(3)</span>
+                                        {{-- <span>(3)</span> --}}
                                     </div>
                                 </li>
                                 @endforeach
@@ -241,122 +245,33 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <h4 class="mb-4">Featured products</h4>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/featur-1.jpg') }}" class="img-fluid rounded" alt="Image">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
+
+                     <div class="col-lg-12">
+                                <h4 class="mb-3">Featured products</h4>
+                                @foreach($bestsellers as $bestseller)
+                                @if ($bestseller->status == 1)
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
+                                        <img src="{{ asset('images/'.$bestseller->photo) }}" class="img-fluid rounded-circle" alt="Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-2">{{ $bestseller->title }}</h6>
+                                        <div class="d-flex mb-2">
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <h5 class="fw-bold me-2">{{ number_format((float) $bestseller->price, 2, '.', '') }} ₹</h5>
+                                            <h5 class="text-danger text-decoration-line-through">5.00 ₹</h5>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/featur-2.jpg') }}" class="img-fluid rounded" alt="">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/featur-3.jpg') }}" class="img-fluid rounded" alt="">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/vegetable-item-4.jpg') }}" class="img-fluid rounded" alt="">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/vegetable-item-5.jpg') }}" class="img-fluid rounded" alt="">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start">
-                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                <img src="{{ asset('welcome/img/vegetable-item-6.jpg') }}" class="img-fluid rounded" alt="">
-                            </div>
-                            <div>
-                                <h6 class="mb-2">Big Banana</h6>
-                                <div class="d-flex mb-2">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <h5 class="fw-bold me-2">2.99 ₹</h5>
-                                    <h5 class="text-danger text-decoration-line-through">4.11 ₹</h5>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                        @endforeach
                         <div class="d-flex justify-content-center my-4">
                             <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Vew More</a>
                         </div>
@@ -372,38 +287,44 @@
                 </div>
             </div>
         </div>
-        <h1 class="fw-bold mb-0 pb-4">Related products</h1>
-        <div class="vegetable">
+
+        {{-- Related Products --}}
+        <div class="container-fluid vesitable">
+            <h1 class="mb-0">Related Products</h1>
             <div class="owl-carousel vegetable-carousel justify-content-center">
-                @foreach ($products as $product)
+                @foreach($products as $product)
                 @if ($product->status == 1)
-                    
-                <div class="border border-primary rounded position-relative vesitable-item">
-                    <div class="vesitable-img">
-                        <img src="{{ asset('images/'.$product->photo) }}" class="img-fluid w-100 rounded-top" alt="">
+        
+                <div class="border border-primary rounded position-relative vegetable-item">
+                    <div class="vegetable-img">
+                            <img src="{{ asset('images/'.$product->photo) }}" class="w-100 rounded-top" alt="Image" style="width: 300px; height: 180px;">
                     </div>
                     <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">{{ $product->category->name }}</div>
-                    <div class="p-4 pb-0 rounded-bottom">
+                    <div class="p-4 rounded-bottom">
                         <h4>{{ $product->title }}</h4>
-                        <p>{!! \Illuminate\Support\Str::limit($product->description, 120, '...') !!}</p>
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
-                            <form action="{{ route('cart.store') }}" method="POST">
+                        <p>{!! \Illuminate\Support\Str::limit($product->description, 90, '...') !!}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="text-dark fs-5 fw-bold mb-0">{{ number_format((float) $product->price, 2, '.', '') }}₹</p>
+                            <form action="{{ route('cart.store') }}" method="POST" class="d-inline-block">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $product->id }}">
                                 <input type="hidden" name="title" value="{{ $product->title }}">
                                 <input type="hidden" name="price" value="{{ number_format((float) $product->price, 2, '.', '') }}₹">
-                            <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                <button type="submit" class="btn border border-secondary rounded-pill text-primary">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
-
-                @endif   
+        
+                @endif
                 @endforeach
-
             </div>
         </div>
+        
+        {{--End Related Products --}}
+
     </div>
 </div>
 <!-- Single Product End -->

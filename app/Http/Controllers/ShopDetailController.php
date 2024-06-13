@@ -13,8 +13,9 @@ class ShopDetailController extends Controller
     public function index() {
         $categories = Category::all(); // Fetch all categories
         $products = Product::all(); 
-        // dd($products);
-        return view('shopdetail', compact('categories','products'));
+        $bestsellers = $products->sortDesc()->take(5); 
+        $reviews = Review::all();
+        return view('shopdetail', compact('categories','products','bestsellers','reviews'));
 
     }
 
@@ -41,8 +42,10 @@ class ShopDetailController extends Controller
         $product = Product::findOrFail($id); 
         $categories = Category::all(); 
         $products = Product::all(); 
+        $bestsellers = $products->sortDesc()->take(5); 
+        $reviews = Review::all();
         
-        return view('shopdetail', compact('product', 'categories', 'products'));
+        return view('shopdetail', compact('product', 'categories', 'products','bestsellers','reviews'));
     }
     
 }

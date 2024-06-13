@@ -12,7 +12,7 @@ class ShopController extends Controller
     public function index() {
         $categories = Category::all(); // Fetch all categories
         $products = Product::all(); 
-        $bestsellers = $products->sortDesc()->take(4); 
+        $bestsellers = $products->sortDesc()->take(5); 
         
         return view('shop', compact('categories','products','bestsellers'));
     }
