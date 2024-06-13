@@ -46,8 +46,8 @@
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street Nagpur, India</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">fastfruits@gmail.com</a></small>
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street Bangalore, India</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">deliver@fastfruits.com</a></small>
                     </div>
                     <div class="top-link pe-2">
                         <a href="{{ url('privacy') }}" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
@@ -170,8 +170,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Contact</h4>
-                            <p>Address:  123 Street Nagpur, India</p>
-                            <p>Email: fastfruits@gmail.com</p>
+                            <p>Address:  123 Street Bangalore, India</p>
+                            <p>Email: deliver@fastfruits.com</p>
                             <p>Phone: +91 8309557905</p>
                             {{-- <p>Payment Accepted</p> --}}
                             {{-- <img src="{{ asset('welcome/img/payment.png') }}" class="img-fluid" alt=""> --}}
