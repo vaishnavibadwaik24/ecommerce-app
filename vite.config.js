@@ -8,9 +8,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    resolve: {
-        alias: {
-            "@": "/resources/js",
-        },
-    },
+    // resolve: {
+    //     alias: {
+    //         "@": "/resources/js",
+    //     },
+    // },
 });

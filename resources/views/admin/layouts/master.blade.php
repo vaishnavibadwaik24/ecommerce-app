@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>FastFruits | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -36,7 +36,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('dist/img/FastFruits_logo.png') }}" alt="Logo" height="100" width="100">
   </div>
 
   <!-- Navbar -->
@@ -181,8 +181,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('') }}" class="brand-link">
-      <img src="{{ asset('dist/img/fruitables_logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Fruitables</span>
+      <img src="{{ asset('dist/img/FastFruits_logo.png') }}" alt="Logo" class="brand-image img-circle" style="width:50px; height:50px;">
+      <span class="brand-text font-weight-light">FastFruits</span>
     </a>
 
     <!-- Sidebar -->
@@ -269,7 +269,7 @@
 @yield('content')
 
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024 <a href="{{ url('') }}">Fruitables</a>.</strong>
+    <strong>@Copyright 2024 <a href="{{ url('') }}">FastFruits</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       {{-- <b>Version</b> 3.2.0 --}}
