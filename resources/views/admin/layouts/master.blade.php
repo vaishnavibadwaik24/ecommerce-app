@@ -178,7 +178,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-yellow elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('') }}" class="brand-link">
       <img src="{{ asset('dist/img/FastFruits_logo.png') }}" alt="Logo" class="brand-image img-circle" style="width:50px; height:50px;">
