@@ -34,22 +34,30 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('users.update', $user->id) }}" method="POST">
+              <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ $user->first_name }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ $user->last_name }}"> 
-                    </div>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
+                </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                     </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
+                  </div>
+                  <div class="form-group"> 
+                    <label for="photo">Old Image</label>
+                    <img src="{{ asset('assets/img/'.$user->image) }}" alt="Profile" style="max-width: 60px; max-height: 60px;">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">New Image</label>
+                    <input class="form-control" type="file" id="image" name="image" value="{{ old('image') }}">
+                  </div>
                     <div class="form-group">
                       <label for="role_id">Role ID</label>&nbsp;
                       <select name="role_id" id="role_id">

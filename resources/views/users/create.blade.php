@@ -43,21 +43,25 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form action="{{ route('users.store') }}" method="POST">
+              <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{ old('first_name') }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{ old('last_name') }}">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email') }}">
                     </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Number" value="{{ old('phone') }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">Image</label>
+                    <input class="form-control" type="file" id="image" name="image">
+                  </div>
                     <div class="form-group">
                       <label for="role_id">Role ID</label>&nbsp;
                       <select name="role_id" id="role_id">

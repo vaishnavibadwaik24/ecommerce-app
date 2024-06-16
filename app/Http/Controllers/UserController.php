@@ -27,9 +27,10 @@ class UserController extends Controller
     public function store(Request $request)
 {
     $this->validate($request, [
-        // 'first_name' => 'required|string|max:50', 
-        // 'last_name' => 'required|string|max:50',
+        'name' => 'required|string|max:50', 
         'email' => 'required|email|unique:users,email',
+        'phone' => 'required|min:11|numeric',
+        'image' => 'required',
         'password' => 'required|min:6|confirmed' 
     ]);        
 
@@ -37,6 +38,15 @@ class UserController extends Controller
     $input['password'] = Hash::make($input['password']);
 
     $user = User::create($input);
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/assets/img');
+        $image->move($destinationPath, $name);
+        $user->image = $name; 
+    }
+    $user->save();
     return redirect()->route('users.index');
 }
 
@@ -56,13 +66,22 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            // 'first_name' => 'required|string|max:50', 
-            // 'last_name' => 'required|string|max:50',
+            'name' => 'required|string|max:50', 
             'email' => 'required|email|unique:users,email',
-            // 'password' => 'required|min:6'
-        ]);
+            'phone' => 'required|min:11|numeric',
+            'image' => 'required',
+        ]);  
 
         $user->update($request->all()); 
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/assets/img');
+            $image->move($destinationPath, $name);
+            $user->image = $name; 
+        }
+        $user->save();
         return redirect()->route('users.index');
     }
 

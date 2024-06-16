@@ -9,14 +9,8 @@
           <div class="col-sm-6">
             <h1>Users</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
-            </ol>
-          </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <!-- Main content -->
@@ -41,9 +35,10 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th>Image</th>
                             <th>Role ID</th>
                             <th>Actions</th>
                         </tr>
@@ -55,14 +50,15 @@
                         @foreach($users as $user)
                             <tr>
                                 <td>{{ $serialNumber++ }}</td>
-                                <td>{{ $user->first_name }}</td>
-                                <td>{{ $user->last_name }}</td>
+                                <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td><img src="{{ asset($user->image) }}" alt="Profile" style="width: 60px; height:60px;"></td>
                                 <td>{{ $user->role_id }}</td>
 
                                 <td class="d-flex">
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary mr-2">Edit</a>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

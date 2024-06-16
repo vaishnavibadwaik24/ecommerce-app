@@ -61,8 +61,19 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, Product $product){
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|unique:products|max:255',
+            'description' => 'required',
+            'category_id' => 'required',
+            'photo' =>  'required',
+            'status' => 'required',
+            'price'=>'required',
+        ]);
+        
         $product->update($request->all()); 
+
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
             $name = time().'.'.$image->getClientOriginalExtension();
