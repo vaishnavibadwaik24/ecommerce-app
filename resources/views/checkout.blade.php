@@ -73,7 +73,7 @@
                         <label class="form-check-label" for="Address-1">Ship to a different address?</label>
                     </div>
                     <div class="form-item">
-                        <textarea name="text" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Oreder Notes (Optional)"></textarea>
+                        <textarea name="text" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Order Notes (Optional)"></textarea>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6 col-xl-5">
@@ -164,7 +164,6 @@
                                 <input type="checkbox" class="form-check-input bg-primary border-0" id="Transfer-1" name="Transfer" value="Transfer">
                                 <label class="form-check-label" for="Transfer-1">Direct Bank Transfer</label>
                             </div>
-                            <p class="text-start text-dark">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                         </div>
                     </div>
                     <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">

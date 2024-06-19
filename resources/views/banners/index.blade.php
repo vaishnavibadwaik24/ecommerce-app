@@ -26,7 +26,7 @@
                     <h3 class="card-title">DataTable with default features</h3>
                 </div>
                 <div class="ml-auto">
-                    <a href="{{ url('banners/create') }}" class="btn btn-info">Add Banner</a>
+                    <a href="{{ url('banners/create') }}" class="btn btn-success">Add Banner</a>
                 </div>
             </div>
               <!-- /.card-header -->

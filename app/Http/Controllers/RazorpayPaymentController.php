@@ -30,6 +30,7 @@ class RazorpayPaymentController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        // dd($input);
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
   
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
@@ -40,12 +41,12 @@ class RazorpayPaymentController extends Controller
   
             } catch (Exception $e) {
                 return  $e->getMessage();
-                Session::put('error',$e->getMessage());
+                // Session::put('error',$e->getMessage());
                 return redirect()->back();
             }
         }
           
-        Session::put('success', 'Payment successful');
+        // Session::put('success', 'Payment successful');
         return redirect()->back();
     }
 }

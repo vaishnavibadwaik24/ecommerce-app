@@ -22,7 +22,7 @@
                                 <h3 class="card-title">DataTable with default features</h3>
                             </div>
                             <div class="ml-auto">
-                                <a href="{{ route('siteinfo.create') }}" class="btn btn-info">Add SiteInfo</a>
+                                <a href="{{ route('siteinfo.create') }}" class="btn btn-success">Add SiteInfo</a>
                             </div>
                         </div>
                         <div class="card-body">

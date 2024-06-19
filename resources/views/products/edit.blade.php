@@ -27,7 +27,7 @@
 
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title"></h3>
               </div>
@@ -83,7 +83,7 @@
                 <!-- /.card-body -->
             
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-success">Update</button>
                 </div>
             </form>
             

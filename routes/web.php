@@ -5,16 +5,18 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\RazorpayPaymentController;
+use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopDetailController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,10 +70,16 @@ Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->na
 Route::get('/testimonial', [TestimonialController::class, 'testimonial_index'])->name('testimonial');
 Route::get('/product/{id}', 'ProductController@show')->name('product.show');
 
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('updateprofile', [ProfileController::class, 'edit'])->name('updateprofile.edit');
+    Route::post('updateprofile', [ProfileController::class, 'update'])->name('updateprofile.update');
 });
+
 
 require __DIR__.'/auth.php';

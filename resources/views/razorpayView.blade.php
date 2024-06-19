@@ -15,7 +15,7 @@
                     </div>
                     @endif
 
-                    @if($message = Session::get('success'))
+                    @if($message = Session::get())
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ $message }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,9 +33,9 @@
                                         data-key="rzp_test_evEOCCEcbjwPij"
                                         data-amount="{{ Cart::subtotal() * 100 }}"
                                         data-buttontext="Pay {{ Cart::subtotal() }} INR"
-                                        data-name="Fruitables.com"
+                                        data-name="FastFruits.com"
                                         data-description="Razorpay"
-                                        data-image="https://www.fruitables.com/frontTheme/images/logo.png"
+                                        data-image="https://www.fastfruits.com/frontTheme/images/logo.png"
                                         data-prefill.name="name"
                                         data-prefill.email="email"
                                         data-theme.color="#ff7529">
